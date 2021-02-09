@@ -1,0 +1,3 @@
+rootProject.name = 'NGAPI'
+include('NGAPI-Spigot', 'NGAPI-Cloudburst', 'NGAPI-Sponge')
+
