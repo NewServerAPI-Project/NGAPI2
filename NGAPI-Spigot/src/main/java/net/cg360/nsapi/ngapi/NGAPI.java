@@ -1,5 +1,6 @@
 package net.cg360.nsapi.ngapi;
 
+import net.cg360.nsapi.commons.id.Namespace;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -8,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class NGAPI extends JavaPlugin {
 
+    public static final Namespace NAME = new Namespace("ngapi");
     protected static NGAPI ngapi = null;
 
     @Override
