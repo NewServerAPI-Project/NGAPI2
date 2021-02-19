@@ -1,5 +1,6 @@
 package net.cg360.nsapi.ngapi.kit;
 
+import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.id.Identifier;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -8,6 +9,12 @@ import org.bukkit.inventory.ItemStack;
 import java.util.Optional;
 
 public abstract class Kit extends Loadout {
+
+    private Settings kitSettings;
+
+    public Kit() {
+        this.kitSettings = genKitSettings().lock();
+    }
 
     @Override
     public void applyTo(Player player, boolean clearPreviousInventory) {
@@ -28,6 +35,11 @@ public abstract class Kit extends Loadout {
         //TODO: Terminate kit behaviour
     }
 
+    /** Configure the kit's settings/properties.*/
+    protected abstract Settings genKitSettings();
+
+
+
     /** @return A meaningful identifier for a kit. */
     public abstract Identifier getKitID();
 
@@ -36,6 +48,9 @@ public abstract class Kit extends Loadout {
 
     /** @return A summary of what the kit includes. */
     public abstract String getKitDescription();
+
+    /** @return A summary of what the kit includes. */
+    public final Settings getKitSettings() { return this.kitSettings; }
 
 
     // Shortened from ExtendedKit
