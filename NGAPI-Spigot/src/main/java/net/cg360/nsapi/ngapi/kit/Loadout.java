@@ -1,7 +1,6 @@
 package net.cg360.nsapi.ngapi.kit;
 
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

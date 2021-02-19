@@ -3,7 +3,10 @@ package net.cg360.nsapi.ngapi.registry;
 import net.cg360.nsapi.commons.id.Identifier;
 import net.cg360.nsapi.ngapi.NGAPI;
 import net.cg360.nsapi.ngapi.kit.KitGroup;
+import net.cg360.nsapi.ngapi.kit.impl.basic.KitCookie;
+import net.cg360.nsapi.ngapi.kit.impl.core.KitEmpty;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.Set;
@@ -11,14 +14,16 @@ import java.util.Set;
 public class KitRegistry {
 
     //TODO: Set default kit
-    public static final KitGroup DEFAULT = new KitGroup(NGAPI.NAME.id("default"), "Default", false, null);
+    public static final KitGroup DEFAULT = new KitGroup(NGAPI.NAME.id("default"), "Basic Kits", true, new KitCookie());
+    public static final KitGroup CORE = new KitGroup(NGAPI.NAME.id("core"), "Core Kit Group", false, new KitEmpty());
     private static KitRegistry registryInstance;
 
     private HashMap<Identifier, KitGroup> kitgroups;
 
     public KitRegistry(){
         this.kitgroups = new HashMap<>();
-        kitgroups.put(NGAPI.NAME.id("default"), DEFAULT);
+        registerKitGroup(DEFAULT);
+        registerKitGroup(CORE);
     }
 
     /**
@@ -59,5 +64,5 @@ public class KitRegistry {
         return Optional.ofNullable(kitgroups.get(id));
     }
 
-    public Set<Identifier> getAllKitGroups() { return kitgroups.keySet(); }
+    public ArrayList<Identifier> getAllKitGroups() { return new ArrayList<>(kitgroups.keySet()); }
 }
