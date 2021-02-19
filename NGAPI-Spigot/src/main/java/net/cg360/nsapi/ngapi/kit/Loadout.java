@@ -13,7 +13,10 @@ public abstract class Loadout {
 
     public void applyTo(Player player, boolean clearPreviousInventory) {
 
-        if(clearPreviousInventory) player.getInventory().clear();
+        if(clearPreviousInventory) {
+            player.getInventory().clear();
+            player.setItemOnCursor(new ItemStack(Material.AIR));
+        }
 
 
         for(int i = 0; i < 9 && i < getHotbarItems().length; i++){
