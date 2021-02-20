@@ -2,14 +2,18 @@ package net.cg360.nsapi.ngapi;
 
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
+import net.cg360.nsapi.ngapi.kit.impl.basic.KitCookie;
 import net.cg360.nsapi.ngapi.registry.KitRegistry;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * NGAPI 2.0 is a minigame api created for Spigot! Based
  * on the
  */
-public class NGAPI extends JavaPlugin {
+public class NGAPI extends JavaPlugin implements Listener {
 
     public static final Namespace NAME = new Namespace("ngapi");
     protected static NGAPI ngapi = null;
@@ -35,13 +39,15 @@ public class NGAPI extends JavaPlugin {
             this.eventManager.setAsPrimaryManager();
             this.kitRegistry.setAsPrimaryRegistry();
 
-
+            this.getServer().getPluginManager().registerEvents(this, this);
         } catch (Exception err){
             ngapi = null;
             err.printStackTrace();
             // Just making sure everything is properly nulled.
         }
     }
+
+
 
     public KitRegistry getKitRegistry() { return kitRegistry; }
 

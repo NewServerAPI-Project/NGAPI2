@@ -2,6 +2,7 @@ name: NGAPI
 main: net.cg360.nsapi.ngapi.NGAPI
 load: STARTUP
 version: "2.0.0"
+api-version: 1.16
 prefix: "ngapi"
 
 authors: [ "CG360", "NSAPI @ Github" ]
