@@ -1,0 +1,9 @@
+name: NGAPI
+main: net.cg360.nsapi.ngapi.NGAPI
+load: STARTUP
+version: "2.0.0"
+prefix: "ngapi"
+
+authors: [ "CG360", "NSAPI @ Github" ]
+description: "This plugin offers tools to create and run games."
+depend: [ "NSAPICommons", "NSAPIMapTools" ]
