@@ -8,13 +8,13 @@ public abstract class Module {
     private boolean isInitialized = false;
 
 
-    public final void init(Settings settings) {
+    public final void init(Settings settings, ModuleContainer<? extends Module> container) {
 
     }
 
 
     /** Called once, it's triggered before the first onEnable. */
-    protected abstract void initModule(Settings settings);
+    protected abstract void initModule(Settings settings, ModuleContainer<? extends Module> container);
 
     /** Triggered whenever the feature is enabled. */
     protected abstract void onEnable();
@@ -25,9 +25,6 @@ public abstract class Module {
     /** Triggered when the game is cleaning up. */
     protected abstract void cleanup();
 
-
-    /** Get the module's identifier. */
-    public abstract Identifier getPackIdentifier();
 
     public boolean isInitialized() { return isInitialized; }
 }

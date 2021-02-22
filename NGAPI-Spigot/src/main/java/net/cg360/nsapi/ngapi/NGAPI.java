@@ -3,7 +3,10 @@ package net.cg360.nsapi.ngapi;
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
 import net.cg360.nsapi.ngapi.kit.impl.basic.KitCookie;
+import net.cg360.nsapi.ngapi.modules.ModuleContainer;
+import net.cg360.nsapi.ngapi.modules.impl.devtest.ModuleKBOnCrouch;
 import net.cg360.nsapi.ngapi.registry.KitRegistry;
+import net.cg360.nsapi.ngapi.registry.ModuleRegistry;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -22,6 +25,7 @@ public class NGAPI extends JavaPlugin implements Listener {
     protected EventManager eventManager; // The master EventManager.
 
     // - Registries -
+    protected ModuleRegistry moduleRegistry;
     protected KitRegistry kitRegistry;
 
     @Override
@@ -32,13 +36,23 @@ public class NGAPI extends JavaPlugin implements Listener {
 
             // -- Registry + Manager assigns--
             this.eventManager = new EventManager();
+
+            this.moduleRegistry = new ModuleRegistry();
             this.kitRegistry = new KitRegistry();
 
 
             // -- Registry + Manager primaries --
             this.eventManager.setAsPrimaryManager();
+
+            this.moduleRegistry.setAsPrimaryRegistry();
             this.kitRegistry.setAsPrimaryRegistry();
 
+
+            // -- API Config + Defaults --
+
+            this.initModules();
+
+            // -- Server Stuff --
             this.getServer().getPluginManager().registerEvents(this, this);
         } catch (Exception err){
             ngapi = null;
@@ -48,8 +62,16 @@ public class NGAPI extends JavaPlugin implements Listener {
     }
 
 
+    protected void initModules() {
+        getModuleRegistry()
+                .register(new ModuleContainer<>(ModuleKBOnCrouch.ID, ModuleKBOnCrouch.class))
+        ;
+    }
 
-    public KitRegistry getKitRegistry() { return kitRegistry; }
+
+
+    public static ModuleRegistry getModuleRegistry() { return get().moduleRegistry; }
+    public static KitRegistry getKitRegistry() { return get().kitRegistry; }
 
     public static NGAPI get() { return ngapi; }
     public static boolean isNGAPILoaded() { return ngapi != null; }
