@@ -12,6 +12,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Logger;
+
 /**
  * NGAPI 2.0 is a minigame api created for Spigot! Based
  * on the
@@ -72,6 +74,7 @@ public class NGAPI extends JavaPlugin implements Listener {
 
     public static ModuleRegistry getModuleRegistry() { return get().moduleRegistry; }
     public static KitRegistry getKitRegistry() { return get().kitRegistry; }
+    public static Logger getLog() { return get().getLogger(); }
 
     public static NGAPI get() { return ngapi; }
     public static boolean isNGAPILoaded() { return ngapi != null; }
