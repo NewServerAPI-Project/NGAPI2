@@ -17,13 +17,13 @@ public abstract class Kit extends Loadout {
     }
 
     @Override
-    public void applyTo(Player player, boolean clearPreviousInventory) {
+    public final void applyTo(Player player, boolean clearPreviousInventory) {
         super.applyTo(player, clearPreviousInventory);
         //TODO: Apply kit behaviour
     }
 
-    public void removeFrom(Player player) { removeFrom(player, true); }
-    public void removeFrom(Player player, boolean clearInventory) {
+    public final void removeFrom(Player player) { removeFrom(player, true); }
+    public final void removeFrom(Player player, boolean clearInventory) {
         // May want to remove kit behaviours without removing the inventory?
         // Provide an option at least.
 
