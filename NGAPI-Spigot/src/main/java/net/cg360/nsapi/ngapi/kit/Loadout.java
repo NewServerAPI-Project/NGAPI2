@@ -33,7 +33,7 @@ public abstract class Loadout {
         getKitChestplate().ifPresent(itemStack -> player.getInventory().setChestplate(itemStack.clone()));
         getKitLeggings().ifPresent(itemStack -> player.getInventory().setLeggings(itemStack.clone()));
         getKitBoots().ifPresent(itemStack -> player.getInventory().setBoots(itemStack.clone()));
-
+        player.updateInventory();
     }
 
     /** @return the items a player should recieve when applied, only in the hotbar.*/
