@@ -7,9 +7,14 @@ public abstract class Module {
 
     private boolean isInitialized = false;
 
+    protected Settings settings;
+    protected ModuleContainer<? extends Module> container;
 
-    public final void init(Settings settings, ModuleContainer<? extends Module> container) {
 
+    protected final void init(Settings settings, ModuleContainer<? extends Module> container) {
+        this.settings = settings;
+        this.container = container;
+        this.initModule(settings, container);
     }
 
 
@@ -27,4 +32,7 @@ public abstract class Module {
 
 
     public boolean isInitialized() { return isInitialized; }
+
+    public Settings getSettings() { return settings; }
+    public ModuleContainer<? extends Module> getContainer() { return container; }
 }
