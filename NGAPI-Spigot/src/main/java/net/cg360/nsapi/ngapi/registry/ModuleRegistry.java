@@ -31,7 +31,7 @@ public class ModuleRegistry {
      * @return true if group was registered.
      */
     public boolean registerModule(ModuleContainer<? extends Module> module) {
-        Identifier id = module.getPackIdentifier();
+        Identifier id = module.getIdentifier();
 
         if(!modules.containsKey(id.getID())){
             modules.put(id.getID(), module);

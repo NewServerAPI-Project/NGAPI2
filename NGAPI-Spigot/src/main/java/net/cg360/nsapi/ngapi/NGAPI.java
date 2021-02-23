@@ -56,6 +56,7 @@ public class NGAPI extends JavaPlugin implements Listener {
 
             // -- Server Stuff --
             this.getServer().getPluginManager().registerEvents(this, this);
+
         } catch (Exception err){
             ngapi = null;
             err.printStackTrace();
