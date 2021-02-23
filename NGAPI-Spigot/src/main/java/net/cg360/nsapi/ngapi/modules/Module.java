@@ -31,8 +31,12 @@ public abstract class Module {
     protected abstract void cleanup();
 
 
-    public boolean isInitialized() { return isInitialized; }
+    /** Sets the module's settings. */
+    protected void setSettings(Settings settings) {
+        this.settings = settings;
+    }
 
+    public boolean isInitialized() { return isInitialized; }
     public Settings getSettings() { return settings; }
     public ModuleContainer<? extends Module> getContainer() { return container; }
 }
