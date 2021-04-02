@@ -3,7 +3,7 @@ package net.cg360.nsapi.ngapi.kit.impl.core;
 import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.id.Identifier;
 import net.cg360.nsapi.ngapi.NGAPI;
-import net.cg360.nsapi.ngapi.keys.KitSetting;
+import net.cg360.nsapi.ngapi.keychain.KitSetting;
 import net.cg360.nsapi.ngapi.kit.Kit;
 import net.cg360.nsapi.ngapi.kit.KitBehaviour;
 

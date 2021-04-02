@@ -1,4 +1,4 @@
-package net.cg360.nsapi.ngapi.keys;
+package net.cg360.nsapi.ngapi.keychain;
 
 import net.cg360.nsapi.commons.data.keyvalue.Key;
 
