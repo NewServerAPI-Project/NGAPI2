@@ -3,6 +3,8 @@ package net.cg360.nsapi.ngapi.modules;
 import net.cg360.nsapi.commons.Check;
 import net.cg360.nsapi.commons.Immutable;
 import net.cg360.nsapi.commons.data.Settings;
+import net.cg360.nsapi.commons.data.keyvalue.IdentityKey;
+import net.cg360.nsapi.commons.data.keyvalue.Key;
 import net.cg360.nsapi.commons.id.Identifier;
 import net.cg360.nsapi.ngapi.NGAPI;
 
@@ -17,6 +19,10 @@ public final class ModuleContainer<T extends Module> {
     private final Class<T> module;
     private final List<Identifier> dependencies;
 
+
+    public ModuleContainer(IdentityKey<T> identifier, Class<T> module, Identifier... dependencies) {
+        this(identifier.get(), module, dependencies);
+    }
 
     public ModuleContainer(Identifier identifier, Class<T> module, Identifier... dependencies) {
         Check.nullParam(identifier, "Module Identifier");

@@ -14,12 +14,12 @@ public abstract class Module {
     protected final void init(Settings settings, ModuleContainer<? extends Module> container) {
         this.settings = settings;
         this.container = container;
-        this.initModule(settings, container);
+        this.isInitialized = this.initModule(settings, container);
     }
 
 
     /** Called once, it's triggered before the first onEnable. */
-    protected abstract void initModule(Settings settings, ModuleContainer<? extends Module> container);
+    protected abstract boolean initModule(Settings settings, ModuleContainer<? extends Module> container);
 
     /** Triggered whenever the feature is enabled. */
     protected abstract void onEnable();
