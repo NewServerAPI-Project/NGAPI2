@@ -32,13 +32,13 @@ public class GameTemplate<T extends GameBehaviour> {
             SessionHandler<T> handler = new SessionHandler<>(this, inst, settings);
 
             try {
-                inst.initialize(handler);
-                handler.initRules();
+                handler.initializeGame();
+                //handler.initRules(); Rules will be handled on a per-stage basis
 
             } catch (Exception err) {
                 err.printStackTrace();
                 NGAPI.getLog().severe(String.format("Error whilst running the game '%s', stopping game.", identifier.getID()));
-                handler.stopGame();
+                handler.haltGame();
             }
             return handler;
 

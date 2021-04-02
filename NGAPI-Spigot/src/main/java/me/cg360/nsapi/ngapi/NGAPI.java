@@ -1,6 +1,7 @@
 package me.cg360.nsapi.ngapi;
 
 import me.cg360.nsapi.ngapi.modules.ModuleContainer;
+import net.cg360.nsapi.commons.SpigotCommons;
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
 import me.cg360.nsapi.ngapi.keychain.NGAPIModule;
@@ -74,6 +75,7 @@ public class NGAPI extends JavaPlugin implements Listener {
     public static ModuleRegistry getModuleRegistry() { return get().moduleRegistry; }
     public static KitRegistry getKitRegistry() { return get().kitRegistry; }
     public static Logger getLog() { return get().getLogger(); }
+    public static EventManager getEventManager() { return SpigotCommons.getEventManager(); } // Replace in nukkit port.
 
     public static NGAPI get() { return ngapi; }
     public static boolean isNGAPILoaded() { return ngapi != null; }

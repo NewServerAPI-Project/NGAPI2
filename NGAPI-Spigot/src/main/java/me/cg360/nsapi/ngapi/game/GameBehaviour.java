@@ -8,21 +8,20 @@ import net.cg360.nsapi.commons.event.filter.FilterDynamicPlayerWhitelist;
 public abstract class GameBehaviour {
 
     private SessionHandler<?> sessionHandler;
-    private FilteredListener eventListener;
 
-    protected void initialize(SessionHandler<?> sessionHandler) {
+    protected final void initialize(SessionHandler<?> sessionHandler) {
         Check.nullParam(sessionHandler, "sessionHandler");
 
         this.sessionHandler = sessionHandler;
-        this.eventListener = new FilteredListener(this,
-                new FilterDynamicPlayerWhitelist(getSessionHandler()::getViewers)
-        );
         this.init(getSessionHandler().getInitSettings()); // It's more there to remind the developer that they exist.
     }
 
     protected abstract void init(Settings initSettings);
 
+    /** Stops any running features of the game and cleans up any remaining content
+     * that is not managed by the API. */
+    protected abstract void halt();
+
 
     public final SessionHandler<?> getSessionHandler() { return sessionHandler; }
-    public final FilteredListener getEventListener() { return eventListener; }
 }
