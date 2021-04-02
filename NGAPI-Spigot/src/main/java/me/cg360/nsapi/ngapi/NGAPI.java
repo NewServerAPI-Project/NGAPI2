@@ -3,7 +3,7 @@ package me.cg360.nsapi.ngapi;
 import me.cg360.nsapi.ngapi.modules.ModuleContainer;
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
-import me.cg360.nsapi.ngapi.keychain.NGAPIModules;
+import me.cg360.nsapi.ngapi.keychain.NGAPIModule;
 import me.cg360.nsapi.ngapi.modules.impl.devtest.ModuleKBOnCrouch;
 import me.cg360.nsapi.ngapi.registry.KitRegistry;
 import me.cg360.nsapi.ngapi.registry.ModuleRegistry;
@@ -65,7 +65,7 @@ public class NGAPI extends JavaPlugin implements Listener {
 
     protected void initModules() {
         getModuleRegistry()
-                .register(new ModuleContainer<>(NGAPIModules.MODKEY_KB_ON_CROUCH, ModuleKBOnCrouch.class))
+                .register(new ModuleContainer<>(NGAPIModule.MODKEY_KB_ON_CROUCH, ModuleKBOnCrouch.class))
         ;
     }
 

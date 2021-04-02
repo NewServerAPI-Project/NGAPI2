@@ -5,7 +5,7 @@ import com.mojang.authlib.properties.Property;
 import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.id.Identifier;
 import me.cg360.nsapi.ngapi.NGAPI;
-import me.cg360.nsapi.ngapi.keychain.KitSetting;
+import me.cg360.nsapi.ngapi.keychain.KitProperty;
 import me.cg360.nsapi.ngapi.kit.Kit;
 import me.cg360.nsapi.ngapi.kit.KitBehaviour;
 import org.bukkit.ChatColor;
@@ -31,8 +31,8 @@ public class KitCookie extends Kit {
     @Override
     protected Settings genKitSettings() {
         return new Settings()
-                .set(KitSetting.COST, 1000)
-                .set(KitSetting.SELECTOR_VISIBLE, true);
+                .set(KitProperty.COST, 1000)
+                .set(KitProperty.SELECTOR_VISIBLE, true);
     }
 
     @Override

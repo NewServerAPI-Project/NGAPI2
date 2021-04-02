@@ -1,6 +1,6 @@
 package me.cg360.nsapi.ngapi.kit.impl.core;
 
-import me.cg360.nsapi.ngapi.keychain.KitSetting;
+import me.cg360.nsapi.ngapi.keychain.KitProperty;
 import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.id.Identifier;
 import me.cg360.nsapi.ngapi.NGAPI;
@@ -17,8 +17,8 @@ public class KitEmpty extends Kit {
     @Override
     protected Settings genKitSettings() {
         return new Settings()
-                .set(KitSetting.COST, 0)
-                .set(KitSetting.SELECTOR_VISIBLE, false);
+                .set(KitProperty.COST, 0)
+                .set(KitProperty.SELECTOR_VISIBLE, false);
     }
 
     @Override
