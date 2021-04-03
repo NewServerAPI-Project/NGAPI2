@@ -1,5 +1,6 @@
 package me.cg360.nsapi.ngapi.modules;
 
+import me.cg360.nsapi.ngapi.game.SessionHandler;
 import net.cg360.nsapi.commons.Check;
 import net.cg360.nsapi.commons.Immutable;
 import net.cg360.nsapi.commons.data.Settings;
@@ -39,11 +40,11 @@ public final class ModuleContainer<T extends Module> {
      * @param settings any settings that should be passed through to the module.
      * @return an optional of the module. Empty if something went wrong.
      */
-    public Optional<T> initializeModule(Settings settings) {
+    public Optional<T> initializeModule(Settings settings, SessionHandler<?> sessionHandler) {
 
         try {
             T m = module.newInstance();
-            m.init(settings.lock(), this); // Ensure settings are locked.
+            m.init(settings.lock(), sessionHandler, this); // Ensure settings are locked.
             return Optional.of(m);
 
         } catch (Exception err) {

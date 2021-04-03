@@ -13,7 +13,7 @@ public abstract class GameBehaviour {
         Check.nullParam(sessionHandler, "sessionHandler");
 
         this.sessionHandler = sessionHandler;
-        this.init(getSessionHandler().getInitSettings()); // It's more there to remind the developer that they exist.
+        this.init(getSessionHandler().getInitSettings()); // Settings are more there to remind the developer that they exist.
     }
 
     protected abstract void init(Settings initSettings);
