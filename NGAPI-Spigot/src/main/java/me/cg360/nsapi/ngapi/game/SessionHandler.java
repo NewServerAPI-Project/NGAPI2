@@ -86,6 +86,11 @@ public class SessionHandler<T extends GameBehaviour> {
     /** @return the current state of the SessionHandler. */
     public SessionState getSessionState() { return sessionState; }
 
+    /** @return the game session's filtered event listener. */
+    public FilteredListener getEventListener() { return eventListener; }
+    /** @return the game session's module loader. */
+    public ModuleLoader getModuleLoader() { return moduleLoader; }
+
     /** @return a list of players that are playing within the current session. */
     public ArrayList<Player> getParticipants() { return new ArrayList<>(participants); }
     /** @return a list of players that do not have an active role in the current session. */
