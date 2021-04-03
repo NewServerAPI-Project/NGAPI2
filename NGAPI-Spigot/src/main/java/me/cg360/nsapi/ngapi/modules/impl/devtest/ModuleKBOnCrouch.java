@@ -1,11 +1,13 @@
 package me.cg360.nsapi.ngapi.modules.impl.devtest;
 
-import me.cg360.nsapi.ngapi.game.SessionHandler;
 import me.cg360.nsapi.ngapi.modules.Module;
-import me.cg360.nsapi.ngapi.modules.ModuleContainer;
 import net.cg360.nsapi.commons.data.Settings;
-import net.cg360.nsapi.commons.event.FilteredListener;
-import org.bukkit.event.Listener;
+import net.cg360.nsapi.commons.event.VanillaEvent;
+import net.cg360.nsapi.commons.event.handler.EventHandler;
+import org.bukkit.event.player.PlayerToggleSneakEvent;
+import org.bukkit.util.Vector;
+
+import java.util.Random;
 
 // Guide:
 // Create a base identifier object and reference it with ModuleContainer#getPackIdentifier() + your KEY
@@ -21,19 +23,18 @@ public class ModuleKBOnCrouch extends Module {
         return true;
     }
 
-    @Override
-    protected void onEnable() {
+    @Override protected void onEnable() { }
+    @Override protected void onDisable() { }
+    @Override protected void cleanup() { }
 
-    }
+    @EventHandler
+    public void onCrouchToggle(VanillaEvent<PlayerToggleSneakEvent> event) {
 
-    @Override
-    protected void onDisable() {
-
-    }
-
-    @Override
-    protected void cleanup() {
-
+        if(event.getWrappedEvent().isSneaking()) { // Note how there's no need to check the player!
+            Random random = new Random();
+            Vector vec = new Vector(random.nextFloat()-0.5f, random.nextFloat()/2f,random.nextFloat()-0.5f);
+            event.getWrappedEvent().getPlayer().setVelocity(vec.normalize().multiply(2f));
+        }
     }
 
 }
