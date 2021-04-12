@@ -36,11 +36,11 @@ public final class ModuleContainer<T extends Module> {
     /**
      * Called when a module is first imported/required in a
      * game. This is often a while before it is used, thus it
-     * should only be used for initial setup.
+     * should only be used for initial setup by the ModuleLoader.
      * @param settings any settings that should be passed through to the module.
      * @return an optional of the module. Empty if something went wrong.
      */
-    public Optional<T> initializeModule(Settings settings, SessionHandler<?> sessionHandler) {
+    protected Optional<T> initializeModule(Settings settings, SessionHandler<?> sessionHandler) {
 
         try {
             T m = module.newInstance();
