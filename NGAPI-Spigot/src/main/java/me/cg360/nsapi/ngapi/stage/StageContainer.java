@@ -9,6 +9,7 @@ import net.cg360.nsapi.commons.id.Identifier;
 
 import java.util.Optional;
 
+/** An object containing the metadata for a specific "Stage" type. */
 public final class StageContainer<T extends Stage> {
 
     private final Identifier identifier;

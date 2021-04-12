@@ -3,12 +3,19 @@ package me.cg360.nsapi.ngapi.stage;
 import me.cg360.nsapi.ngapi.game.SessionHandler;
 import net.cg360.nsapi.commons.data.Settings;
 
+/**
+ * A block instantiated during a sessions' operation that can be used by
+ * multiple game types or server structures to implement a set of behaviours
+ * prior to or after a game's operation.
+ */
 public abstract class Stage {
+
+    private StageContainer<? extends Stage> container;
 
     /** Used to prepare any data or configuration for the stage once the game session is prepared. */
     protected abstract void init(Settings initSettings, SessionHandler<?> sessionHandler, StageContainer<? extends Stage> stageContainer);
 
-    /** Excecuted when the stage starts. */
+    /** Executed when the stage starts. */
     protected abstract void onStageStart();
 
     /**

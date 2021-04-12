@@ -6,13 +6,17 @@ import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.event.FilteredListener;
 import net.cg360.nsapi.commons.event.filter.EventFilter;
 
+/**
+ * A reusable collection of behaviours that can be used
+ * across multiple game types and stages.
+ */
 public abstract class Module {
 
     private boolean isInitialized = false;
 
     protected Settings settings;
-    protected SessionHandler<?> sessionHandler;
-    protected ModuleContainer<? extends Module> container;
+    private SessionHandler<?> sessionHandler;
+    private ModuleContainer<? extends Module> container;
 
     protected FilteredListener listener;
 
@@ -50,8 +54,11 @@ public abstract class Module {
 
 
     public boolean isInitialized() { return isInitialized; }
+
     public Settings getSettings() { return settings; }
+    public SessionHandler<?> getSessionHandler() { return sessionHandler; }
     public ModuleContainer<? extends Module> getContainer() { return container; }
+
     public FilteredListener getListener() { return listener; }
 
     /** Sets the module's settings. */
