@@ -2,7 +2,7 @@ package me.cg360.nsapi.ngapi.keychain;
 
 import net.cg360.nsapi.commons.data.keyvalue.IdentityKey;
 import net.cg360.nsapi.commons.id.Identifier;
-import me.cg360.nsapi.ngapi.modules.impl.devtest.ModuleKBOnCrouch;
+import me.cg360.nsapi.ngapi.module.impl.devtest.ModuleKBOnCrouch;
 
 public class NGAPIModule {
 

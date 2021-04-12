@@ -1,11 +1,11 @@
 package me.cg360.nsapi.ngapi;
 
-import me.cg360.nsapi.ngapi.modules.ModuleContainer;
+import me.cg360.nsapi.ngapi.module.ModuleContainer;
 import net.cg360.nsapi.commons.SpigotCommons;
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
 import me.cg360.nsapi.ngapi.keychain.NGAPIModule;
-import me.cg360.nsapi.ngapi.modules.impl.devtest.ModuleKBOnCrouch;
+import me.cg360.nsapi.ngapi.module.impl.devtest.ModuleKBOnCrouch;
 import me.cg360.nsapi.ngapi.registry.KitRegistry;
 import me.cg360.nsapi.ngapi.registry.ModuleRegistry;
 import org.bukkit.event.Listener;

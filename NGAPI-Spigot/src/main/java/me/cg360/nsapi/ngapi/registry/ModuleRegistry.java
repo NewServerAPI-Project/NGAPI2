@@ -1,7 +1,7 @@
 package me.cg360.nsapi.ngapi.registry;
 
-import me.cg360.nsapi.ngapi.modules.Module;
-import me.cg360.nsapi.ngapi.modules.ModuleContainer;
+import me.cg360.nsapi.ngapi.module.Module;
+import me.cg360.nsapi.ngapi.module.ModuleContainer;
 import net.cg360.nsapi.commons.data.keyvalue.Key;
 import net.cg360.nsapi.commons.id.Identifier;
 

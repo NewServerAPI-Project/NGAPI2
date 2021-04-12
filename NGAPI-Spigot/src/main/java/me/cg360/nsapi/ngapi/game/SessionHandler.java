@@ -2,9 +2,8 @@ package me.cg360.nsapi.ngapi.game;
 
 import me.cg360.nsapi.ngapi.NGAPI;
 import net.cg360.nsapi.commons.Check;
-import net.cg360.nsapi.commons.SpigotCommons;
 import net.cg360.nsapi.commons.data.Settings;
-import me.cg360.nsapi.ngapi.modules.ModuleLoader;
+import me.cg360.nsapi.ngapi.module.ModuleLoader;
 import net.cg360.nsapi.commons.event.FilteredListener;
 import net.cg360.nsapi.commons.event.filter.FilterDynamicPlayerWhitelist;
 import org.bukkit.entity.Player;

@@ -1,6 +1,6 @@
-package me.cg360.nsapi.ngapi.modules.impl.devtest;
+package me.cg360.nsapi.ngapi.module.impl.devtest;
 
-import me.cg360.nsapi.ngapi.modules.Module;
+import me.cg360.nsapi.ngapi.module.Module;
 import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.event.VanillaEvent;
 import net.cg360.nsapi.commons.event.handler.EventHandler;

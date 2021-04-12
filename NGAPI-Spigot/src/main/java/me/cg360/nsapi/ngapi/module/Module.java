@@ -1,11 +1,10 @@
-package me.cg360.nsapi.ngapi.modules;
+package me.cg360.nsapi.ngapi.module;
 
 import me.cg360.nsapi.ngapi.game.SessionHandler;
 import net.cg360.nsapi.commons.Check;
 import net.cg360.nsapi.commons.data.Settings;
 import net.cg360.nsapi.commons.event.FilteredListener;
 import net.cg360.nsapi.commons.event.filter.EventFilter;
-import net.cg360.nsapi.commons.event.filter.FilterDynamicPlayerWhitelist;
 
 public abstract class Module {
 
