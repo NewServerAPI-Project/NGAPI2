@@ -11,6 +11,7 @@ import net.cg360.nsapi.commons.data.Settings;
 public abstract class Stage {
 
     private StageContainer<? extends Stage> container;
+    private StageManager hostManager;
 
     /** Used to prepare any data or configuration for the stage once the game session is prepared. */
     protected abstract void init(Settings initSettings, SessionHandler<?> sessionHandler, StageContainer<? extends Stage> stageContainer);
@@ -24,4 +25,9 @@ public abstract class Stage {
      */
     protected abstract void onStageStop();
 
+
+    public final StageContainer<? extends Stage> getContainer() { return container; }
+    public final StageManager getHostManager() {
+        return hostManager;
+    }
 }

@@ -1,6 +1,7 @@
 package me.cg360.nsapi.ngapi;
 
 import me.cg360.nsapi.ngapi.module.ModuleContainer;
+import me.cg360.nsapi.ngapi.registry.StageRegistry;
 import net.cg360.nsapi.commons.SpigotCommons;
 import net.cg360.nsapi.commons.event.EventManager;
 import net.cg360.nsapi.commons.id.Namespace;
@@ -27,6 +28,7 @@ public class NGAPI extends JavaPlugin implements Listener {
 
     // - Registries -
     protected ModuleRegistry moduleRegistry;
+    protected StageRegistry stageRegistry;
     protected KitRegistry kitRegistry;
 
     @Override
@@ -39,6 +41,7 @@ public class NGAPI extends JavaPlugin implements Listener {
             this.eventManager = new EventManager();
 
             this.moduleRegistry = new ModuleRegistry();
+            this.stageRegistry = new StageRegistry();
             this.kitRegistry = new KitRegistry();
 
 
@@ -46,6 +49,7 @@ public class NGAPI extends JavaPlugin implements Listener {
             this.eventManager.setAsPrimaryManager();
 
             this.moduleRegistry.setAsPrimaryRegistry();
+            this.stageRegistry.setAsPrimaryRegistry();
             this.kitRegistry.setAsPrimaryRegistry();
 
 
@@ -73,6 +77,7 @@ public class NGAPI extends JavaPlugin implements Listener {
 
 
     public static ModuleRegistry getModuleRegistry() { return get().moduleRegistry; }
+    public static StageRegistry getStageRegistry() { return get().stageRegistry; }
     public static KitRegistry getKitRegistry() { return get().kitRegistry; }
     public static Logger getLog() { return get().getLogger(); }
     public static EventManager getEventManager() { return SpigotCommons.getEventManager(); } // Replace in nukkit port.

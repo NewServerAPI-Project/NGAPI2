@@ -56,8 +56,8 @@ public abstract class Module {
     public boolean isInitialized() { return isInitialized; }
 
     public Settings getSettings() { return settings; }
-    public SessionHandler<?> getSessionHandler() { return sessionHandler; }
-    public ModuleContainer<? extends Module> getContainer() { return container; }
+    public final SessionHandler<?> getSessionHandler() { return sessionHandler; }
+    public final ModuleContainer<? extends Module> getContainer() { return container; }
 
     public FilteredListener getListener() { return listener; }
 
