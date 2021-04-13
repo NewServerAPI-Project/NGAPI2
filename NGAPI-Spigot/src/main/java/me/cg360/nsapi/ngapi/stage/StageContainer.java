@@ -37,11 +37,11 @@ public final class StageContainer<T extends Stage> {
      * @param settings any settings that should be passed through to the module.
      * @return an optional of the module. Empty if something went wrong.
      */
-    protected Optional<T> initializeInstance(Settings settings, SessionHandler<?> sessionHandler) {
+    protected Optional<T> initializeInstance(Settings settings, StageManager stageManager) {
 
         try {
             T m = module.newInstance();
-            m.init(settings.lock(), sessionHandler, this); // Ensure settings are locked.
+            m.init(settings, stageManager, this); // Ensure settings are locked.
             return Optional.of(m);
 
         } catch (Exception err) {

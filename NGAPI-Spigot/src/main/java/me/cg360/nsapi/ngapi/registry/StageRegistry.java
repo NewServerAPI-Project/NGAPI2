@@ -56,7 +56,7 @@ public class StageRegistry {
     }
 
     @SuppressWarnings("unchecked") // Should be caught in the try-catch statement
-    public <T extends Stage> Optional<StageContainer<T>> getModule(Key<T> key) {
+    public <T extends Stage> Optional<StageContainer<T>> getStageType(Key<T> key) {
         StageContainer<? extends Stage> m = stageTypes.get(key.get());
 
         if(m == null) { // Not Found
@@ -74,7 +74,7 @@ public class StageRegistry {
     }
 
     /** @return the stage type. */
-    public Optional<StageContainer<Stage>> getModule(Identifier key) {
-        return getModule(new Key<>(key.getID()));
+    public Optional<StageContainer<Stage>> getStageType(Identifier key) {
+        return getStageType(new Key<>(key.getID()));
     }
 }
