@@ -44,7 +44,7 @@ public final class ModuleContainer<T extends Module> {
 
         try {
             T m = module.newInstance();
-            m.init(settings.lock(), sessionHandler, this); // Ensure settings are locked.
+            m.init(settings, sessionHandler, this); // Ensure settings are locked.
             return Optional.of(m);
 
         } catch (Exception err) {

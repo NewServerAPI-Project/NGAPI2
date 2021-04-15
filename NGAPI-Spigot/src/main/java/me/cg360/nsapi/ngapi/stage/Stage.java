@@ -46,6 +46,30 @@ public abstract class Stage {
 
 
 
+    protected boolean startStage() {
+        if(this.isInitialized && (!this.isRunning)) {
+            if(hostManager.getActiveStage() == this) {
+                onStageStart();
+                this.isRunning = true;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected boolean stopStage() {
+        if(this.isRunning) {
+            if(hostManager.getActiveStage() == this) {
+                onStageStop();
+                this.isRunning = false;
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
     public final StageManager getHostManager() { return hostManager; }
     public final StageContainer<? extends Stage> getStageContainer() { return stageContainer; }
 

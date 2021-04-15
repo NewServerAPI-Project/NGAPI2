@@ -13,6 +13,7 @@ import net.cg360.nsapi.commons.event.filter.EventFilter;
 public abstract class Module {
 
     private boolean isInitialized = false;
+    private boolean isEnabled = false;
 
     protected Settings settings;
     private SessionHandler<?> sessionHandler;
@@ -22,7 +23,6 @@ public abstract class Module {
 
 
     protected final void init(Settings settings, SessionHandler<?> sessionHandler, ModuleContainer<? extends Module> container) {
-        Check.nullParam(settings, "settings");
         Check.nullParam(sessionHandler, "sessionHandler");
         Check.nullParam(container, "container");
 
@@ -35,7 +35,7 @@ public abstract class Module {
                 sessionHandler.getEventListener().getFilters().toArray(new EventFilter[0]) // Copy SessionHandler's listeners.
         );
 
-        this.isInitialized = this.initModule(settings);
+        this.isInitialized = this.initModule((settings == null ? new Settings() : settings).lock());
     }
 
 
@@ -53,7 +53,28 @@ public abstract class Module {
 
 
 
-    public boolean isInitialized() { return isInitialized; }
+    protected final boolean enableModule() {
+        if(this.isInitialized && (!this.isEnabled) ) {
+            onEnable();
+            this.isEnabled = true;
+            return true;
+        }
+        return false;
+    }
+
+    protected final boolean disableModule() {
+        if(this.isEnabled) {
+            onDisable();
+            this.isEnabled = false;
+            return true;
+        }
+        return false;
+    }
+
+
+
+    public final boolean isInitialized() { return isInitialized; }
+    public final boolean isEnabled() { return isEnabled; }
 
     public Settings getSettings() { return settings; }
     public final SessionHandler<?> getSessionHandler() { return sessionHandler; }
