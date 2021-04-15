@@ -55,7 +55,18 @@ public class StageManager {
             Optional<Stage> stage = container.initializeInstance(initSettings, this);
 
             if(!stage.isPresent()) throw new BrokenComponentException("stage", identifier);
-            stageQueue.add(stage.get());
+
+            int size = stageQueue.size();
+            for(int i = 0; i < size; i++) {
+                Stage queueStage = stageQueue.get(i);
+                if(queueStage.getStageContainer().getOrderIndex() > container.getOrderIndex()) {
+                    stageQueue.add(i, stage.get()); // Insert it
+                    queueContainers.add(container);
+                    return true; // Return true early as it was successfully added.
+                }
+            }
+
+            stageQueue.add(stage.get()); // If not added, append it.
             queueContainers.add(container);
             return true;
         }

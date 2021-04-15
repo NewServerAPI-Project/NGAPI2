@@ -66,4 +66,12 @@ public final class StageContainer<T extends Stage> {
     public StageType getLifecycleType() {
         return lifecycleType;
     }
+
+    /** @return the index used to order stages within a session. */
+    public int getOrderIndex() {
+        // TODO: Allow stages to specify an index between 0-4999
+        //  for finer priority management. This index should be
+        //  should be added on top of the index below \/\/\/
+        return getLifecycleType().getStartingOrderIndex();
+    }
 }
